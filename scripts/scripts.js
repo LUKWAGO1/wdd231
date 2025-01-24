@@ -15,20 +15,31 @@ const filterCSE = document.getElementById('filter-cse');
 const filterWDD = document.getElementById('filter-wdd');
 const menuToggle = document.getElementById('menu-toggle');
 const navbarUl = document.querySelector('.navbar ul');
+const totalCreditsDiv = document.getElementById('totalCredits'); // Total credits element
+
+const CREDITS_PER_COURSE = 2; // Each course carries 2 credits
 
 // Toggle mobile menu
 menuToggle?.addEventListener('click', () => {
     navbarUl.classList.toggle('show');
 });
 
-// Filter courses
+// Filter courses and calculate total credits
 function filterCourses(type = 'all') {
     certificateList.innerHTML = '';
-    
+
+    // Filter courses based on type
     const filteredCourses = type === 'all' 
         ? courses 
         : courses.filter(course => course.code.startsWith(type));
 
+    // Calculate total credits
+    const totalCredits = filteredCourses.length * CREDITS_PER_COURSE;
+
+    // Display total credits
+    totalCreditsDiv.textContent = `Total Credits: ${totalCredits}`;
+
+    // Render filtered course cards
     filteredCourses.forEach(course => {
         const courseCard = document.createElement('div');
         courseCard.className = `course-card ${course.completed ? 'completed' : ''}`;
@@ -56,5 +67,5 @@ document.getElementById('currentyear').textContent = new Date().getFullYear();
 document.getElementById('lastModified').textContent = `Last Update: ${document.lastModified}`;
 
 // Initial display
-filterCourses('all');
+filterCourses('all'); // Display all courses on page load
 filterAll?.classList.add('active');
