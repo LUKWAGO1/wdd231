@@ -15,7 +15,6 @@ const filterCSE = document.getElementById('filter-cse');
 const filterWDD = document.getElementById('filter-wdd');
 const menuToggle = document.getElementById('menu-toggle');
 const navbarUl = document.querySelector('.navbar ul');
-const totalCreditsDiv = document.getElementById('totalCredits'); // Add this in your HTML to display total credits
 
 // Toggle mobile menu
 menuToggle?.addEventListener('click', () => {
@@ -30,15 +29,10 @@ function filterCourses(type = 'all') {
         ? courses 
         : courses.filter(course => course.code.startsWith(type));
 
-    // Calculate and display total credits
-    const totalCredits = filteredCourses.length * 2;
-    totalCreditsDiv.textContent = `Total Credits: ${totalCredits}`;
-
-    // Render course cards
     filteredCourses.forEach(course => {
         const courseCard = document.createElement('div');
-        courseCard.className = `course-card ${course.completed ? 'completed' : ''}`;
-        courseCard.innerHTML = `<h3>${course.code}</h3>`;
+        courseCard.className = course-card ${course.completed ? 'completed' : ''};
+        courseCard.innerHTML = <h3>${course.code}</h3>;
         certificateList.appendChild(courseCard);
     });
 }
@@ -59,7 +53,7 @@ function filterCourses(type = 'all') {
 
 // Set the current year and last modified date
 document.getElementById('currentyear').textContent = new Date().getFullYear();
-document.getElementById('lastModified').textContent = `Last Update: ${document.lastModified}`;
+document.getElementById('lastModified').textContent = Last Update: ${document.lastModified};
 
 // Initial display
 filterCourses('all');
