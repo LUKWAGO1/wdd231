@@ -15,7 +15,7 @@ const filterCSE = document.getElementById('filter-cse');
 const filterWDD = document.getElementById('filter-wdd');
 const menuToggle = document.getElementById('menu-toggle');
 const navbarUl = document.querySelector('.navbar ul');
-const totalCreditsDiv = document.getElementById('totalCredits'); // Add this in your HTML to display total credits
+const totalCreditsDiv = document.getElementById('totalCredits');
 
 // Toggle mobile menu
 menuToggle?.addEventListener('click', () => {
@@ -25,20 +25,14 @@ menuToggle?.addEventListener('click', () => {
 // Filter courses
 function filterCourses(type = 'all') {
     certificateList.innerHTML = '';
-    
-    const filteredCourses = type === 'all' 
-        ? courses 
-        : courses.filter(course => course.code.startsWith(type));
-
-    // Calculate and display total credits
+    const filteredCourses = type === 'all' ? courses : courses.filter(course => course.code.startsWith(type));
     const totalCredits = filteredCourses.length * 2;
-    totalCreditsDiv.textContent = `Total Credits: ${totalCredits}`;
+    if (totalCreditsDiv) totalCreditsDiv.textContent = `Total Credits: ${totalCredits}`;
 
-    // Render course cards
     filteredCourses.forEach(course => {
         const courseCard = document.createElement('div');
         courseCard.className = `course-card ${course.completed ? 'completed' : ''}`;
-        courseCard.innerHTML = `<h3>${course.code}</h3>`;
+        courseCard.innerHTML = `<h3>${course.code}</h3><p>${course.name}</p><p>Status: ${course.completed ? 'Completed' : 'In Progress'}</p>`;
         certificateList.appendChild(courseCard);
     });
 }
@@ -50,8 +44,7 @@ function filterCourses(type = 'all') {
     { btn: filterWDD, type: 'WDD' }
 ].forEach(({ btn, type }) => {
     btn?.addEventListener('click', () => {
-        document.querySelectorAll('.certificate-buttons button')
-            .forEach(button => button.classList.remove('active'));
+        document.querySelectorAll('.certificate-buttons button').forEach(button => button.classList.remove('active'));
         btn.classList.add('active');
         filterCourses(type);
     });
