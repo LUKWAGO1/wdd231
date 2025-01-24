@@ -20,9 +20,11 @@ const totalCreditsDiv = document.getElementById('totalCredits'); // Total credit
 const CREDITS_PER_COURSE = 2; // Each course carries 2 credits
 
 // Toggle mobile menu
-menuToggle?.addEventListener('click', () => {
-    navbarUl.classList.toggle('show');
-});
+if (menuToggle) {
+    menuToggle.addEventListener('click', () => {
+        navbarUl.classList.toggle('show');
+    });
+}
 
 // Filter courses and calculate total credits
 function filterCourses(type = 'all') {
@@ -54,18 +56,30 @@ function filterCourses(type = 'all') {
     { btn: filterCSE, type: 'CSE' },
     { btn: filterWDD, type: 'WDD' }
 ].forEach(({ btn, type }) => {
-    btn?.addEventListener('click', () => {
-        document.querySelectorAll('.certificate-buttons button')
-            .forEach(button => button.classList.remove('active'));
-        btn.classList.add('active');
-        filterCourses(type);
-    });
+    if (btn) {
+        btn.addEventListener('click', () => {
+            document.querySelectorAll('.certificate-buttons button')
+                .forEach(button => button.classList.remove('active'));
+            btn.classList.add('active');
+            filterCourses(type);
+        });
+    }
 });
 
 // Set the current year and last modified date
-document.getElementById('currentyear').textContent = new Date().getFullYear();
-document.getElementById('lastModified').textContent = `Last Update: ${document.lastModified}`;
+const currentYearElement = document.getElementById('currentyear');
+const lastModifiedElement = document.getElementById('lastModified');
+
+if (currentYearElement) {
+    currentYearElement.textContent = new Date().getFullYear();
+}
+
+if (lastModifiedElement) {
+    lastModifiedElement.textContent = `Last Update: ${document.lastModified}`;
+}
 
 // Initial display
 filterCourses('all'); // Display all courses on page load
-filterAll?.classList.add('active');
+if (filterAll) {
+    filterAll.classList.add('active');
+}
