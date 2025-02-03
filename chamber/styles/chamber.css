@@ -158,11 +158,12 @@ footer {
 	font-size: 1.2rem;
 	text-align: center;
 	transition: background-color 0.3s ease;
+	
 }
 
 .call-button:hover {
 	background-color: rgb(132, 146, 159, 0.8);
-	border: 2px solid white;
+	border: 2px solid whiteSSS;
 	color: var(--text2-color);
 }
 
