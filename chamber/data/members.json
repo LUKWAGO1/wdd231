@@ -1,59 +1,60 @@
-[
-  {
-    "name": "Tech Solutions",
-    "address": "123 Tech Street, Silicon Valley, CA",
-    "phone": "123-456-7890",
-    "website": "https://techsolutions.com",
-    "image": "techsolution.jpg",
-    "membershipLevel": 3
-  },
-  {
-    "name": "Green Earth Landscaping",
-    "address": "456 Greenway Blvd, Austin, TX",
-    "phone": "987-654-3210",
-    "website": "https://greenearth.com",
-    "image": "beache.jpg",
-    "membershipLevel": 2
-  },
-  {
-    "name": "Bright Minds Academy",
-    "address": "789 Knowledge Ave, Boston, MA",
-    "phone": "555-123-4567",
-    "website": "https://brightminds.com",
-    "image": "brightminds.jpg",
-    "membershipLevel": 1
-  },
-  {
-    "name": "Healthy Living Pharmacy",
-    "address": "321 Wellness Way, Denver, CO",
-    "phone": "444-555-6666",
-    "website": "https://healthyliving.com",
-    "image": "healthylivingpharmacy.jpg",
-    "membershipLevel": 2
-  },
-  {
-    "name": "Eco Builders",
-    "address": "654 Sustainable Rd, Portland, OR",
-    "phone": "222-333-4444",
-    "website": "https://ecobuilders.com",
-    "image": "Ecobuilders.jpg",
-    "membershipLevel": 3
-  },
-  {
-    "name": "Urban Fitness Gym",
-    "address": "987 Fit Lane, Miami, FL",
-    "phone": "888-777-6666",
-    "website": "https://urbanfitness.com",
-    "image": "urbanfitness.jpg",
-    "membershipLevel": 1
-  },
-  {
-    "name": "Culinary Delights",
-    "address": "159 Gourmet Blvd, Chicago, IL",
-    "phone": "111-222-3333",
-    "website": "https://culinarydelights.com",
-    "image": "culinarydelights.jpg",
-    "membershipLevel": 3
-  }
-
-]
+{
+  "members": [
+    {
+      "name": "Tech Solutions",
+      "address": "123 Tech Street, Silicon Valley, CA",
+      "phone": "123-456-7890",
+      "website": "https://techsolutions.com",
+      "image": "techsolution.jpg",
+      "membershipLevel": 3
+    },
+    {
+      "name": "Green Earth Landscaping",
+      "address": "456 Greenway Blvd, Austin, TX",
+      "phone": "987-654-3210",
+      "website": "https://greenearth.com",
+      "image": "beache.jpg",
+      "membershipLevel": 2
+    },
+    {
+      "name": "Bright Minds Academy",
+      "address": "789 Knowledge Ave, Boston, MA",
+      "phone": "555-123-4567",
+      "website": "https://brightminds.com",
+      "image": "brightminds.jpg",
+      "membershipLevel": 1
+    },
+    {
+      "name": "Healthy Living Pharmacy",
+      "address": "321 Wellness Way, Denver, CO",
+      "phone": "444-555-6666",
+      "website": "https://healthyliving.com",
+      "image": "healthylivingpharmacy.jpg",
+      "membershipLevel": 2
+    },
+    {
+      "name": "Eco Builders",
+      "address": "654 Sustainable Rd, Portland, OR",
+      "phone": "222-333-4444",
+      "website": "https://ecobuilders.com",
+      "image": "Ecobuilders.jpg",
+      "membershipLevel": 3
+    },
+    {
+      "name": "Urban Fitness Gym",
+      "address": "987 Fit Lane, Miami, FL",
+      "phone": "888-777-6666",
+      "website": "https://urbanfitness.com",
+      "image": "urbanfitness.jpg",
+      "membershipLevel": 1
+    },
+    {
+      "name": "Culinary Delights",
+      "address": "159 Gourmet Blvd, Chicago, IL",
+      "phone": "111-222-3333",
+      "website": "https://culinarydelights.com",
+      "image": "culinarydelights.jpg",
+      "membershipLevel": 3
+    }
+  ]
+}

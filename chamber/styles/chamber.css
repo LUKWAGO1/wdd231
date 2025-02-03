@@ -1,0 +1,706 @@
+:root {
+	--primary-color: #09253E;
+	--secondary-color: #361D2E;
+	--background-color: white;
+	--accent1-color: #F78A25;
+	--accent2-color: #84929f;
+	--text1-color: #171219;
+	--text2-color: #F9F9F9;
+	--link-color: #006400;
+}
+
+body {
+	font-family: "Quicksand", Arial, Helvetica, sans-serif;
+	color: var(--text1-color);
+}
+
+header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	background-color: var(--primary-color);
+	color: var(--text2-color);
+	padding: 1rem;
+	position: relative;
+}
+
+header h1 {
+	font-family: "Newsreader", Georgia, 'Times New Roman', serif;
+}
+
+main {
+	max-width: 1500px;
+	margin: 0 auto;
+}
+
+h2 {
+	text-align: center;
+}
+
+footer {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	align-items: center;
+	justify-items: center;
+	background-color: var(--primary-color);
+	color: var(--text2-color);
+	padding: 1rem 0;
+	margin-top: 0;
+}
+
+/* Class selectors */
+/* Header logo */
+.logo {
+	display: flex;
+	align-items: center;
+}
+
+.logo img {
+	width: 50px;
+	height: 50px;
+	margin-right: 1rem;
+	margin-left: 1rem;
+}
+
+.logo h1,
+.logo p {
+	margin: 0;
+}
+
+.logo div {
+	display: flex;
+	flex-direction: column;
+}
+
+/* Navbar */
+.nav-menu ul {
+	display: flex;
+	gap: 2rem;
+	list-style: none;
+	margin-right: 1rem;
+}
+
+.nav-menu a {
+	color: var(--text2-color);
+	text-decoration: none;
+}
+
+.nav-menu a:hover {
+	color: var(--accent1-color);
+	text-decoration: underline;
+}
+
+.nav-menu a.active {
+	color: var(--accent1-color);
+}
+
+.hamburger-menu {
+	display: none;
+	cursor: pointer;
+	padding: 0.5rem;
+	position: absolute;
+	top: 1rem;
+	right: 1rem;
+}
+
+/* View toggle button */
+.view-toggle {
+	display: flex;
+	justify-content: flex-end;
+	background-color: var(--background-color);
+	padding: 1rem;
+}
+
+.view-toggle button {
+	display: flex;
+	width: 50px;
+	height: 50px;
+	border: 1px solid var(--accent2-color);
+	border-radius: 4px;
+	background: none;
+	cursor: pointer;
+	align-items: center;
+	justify-content: center;
+	margin: 0 4px;
+	padding: 0;
+}
+
+.view-toggle button img {
+	width: 47px;
+	height: 47px;
+	display: block;
+}
+
+.view-toggle button.active {
+	background-color: var(--accent2-color);
+}
+
+/* Home Page */
+.hero {
+	position: relative;
+}
+
+.hero-call {
+	position: absolute;
+	top: 0.4rem;
+	right: 2rem;
+}
+
+.call-button {
+	display: inline-block;
+	background-color: var(--accent1-color);
+	color: var(--text1-color);
+	padding: 1rem;
+	border: 2px solid var(--secondary-color);
+	border-radius: 5px;
+	text-decoration: none;
+	font-weight: 600;
+	font-size: 1.2rem;
+	text-align: center;
+	transition: background-color 0.3s ease;
+}
+
+.call-button:hover {
+	background-color: rgb(132, 146, 159, 0.8);
+	border: 2px solid white;
+	color: var(--text2-color);
+}
+
+.hero img {
+	width: 100%;
+	height: auto;
+}
+
+.page-title {
+	text-align: left;
+	margin: 1rem;
+	padding-bottom: 0.5rem;
+	font-size: 2rem;
+	color: var(--text1-color);
+	border-bottom: 1px solid var(--secondary-color);
+}
+
+.section-header {
+	padding: 0.8rem;
+	margin: 0;
+	background-color: var(--accent2-color);
+	color: var(--text1-color);
+}
+
+.section-grid {
+	display: grid;
+	grid-template-columns: 3fr 2fr 1fr;
+	gap: 1rem;
+	margin: 1rem;
+	padding: 0.5rem;
+}
+
+/* Event content */
+.current-events,
+.current-weather,
+.weather-forecast,
+.spotlight-card {
+	border: 1px solid var(--primary-color);
+	border-radius: 5px;
+}
+
+.event-card {
+	display: grid;
+	grid-template-columns: auto 1fr;
+	gap: 1rem;
+	padding: 1rem;
+}
+
+.event-card img {
+	width: 150px;
+	height: auto;
+}
+
+.event-info h4 {
+	margin: 0;
+}
+
+.event-info {
+	display: flex;
+	flex-direction: column;
+}
+
+.date {
+	font-style: italic;
+	font-weight: 500;
+}
+
+/* Link colors */
+.event-info a,
+.spotlight-content a,
+.member-card a {
+	text-decoration: underline;
+	color: var(--link-color);
+}
+
+.event-info a:hover,
+.spotlight-content a:hover,
+.member-card a:hover {
+	color: var(--accent1-color);
+}
+
+/* Spotlights */
+.company-spotlights h3 {
+	margin: 1rem;
+	padding-bottom: 0.5rem;
+	font-size: 1.5rem;
+	color: var(--text1-color);
+	border-bottom: 1px solid var(--secondary-color);
+}
+
+.spotlight-card {
+	text-align: center;
+	padding: 0 0 1rem 0;
+}
+
+.spotlight-content h4 {
+	padding: 0.8rem;
+	margin: 0;
+	background-color: var(--accent2-color);
+	color: var(--text1-color);
+	font-size: 1.2rem;
+}
+
+.spotlight-content img {
+	max-width: 150px;
+	justify-self: center;
+	padding-top: 2rem;
+}
+
+.membership {
+	font-style: italic;
+}
+
+.link {
+	padding: 1rem;
+}
+
+/* Drectory Page */
+/* Businesses member cards */
+.member-card {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	font-weight: 550;
+}
+
+.member-card [data-type="membership"] {
+	font-style: italic;
+}
+
+.member-card img {
+	max-width: 150px;
+}
+
+/* Member cards grid view */
+.grid-view .member-card {
+	text-align: center;
+	border-radius: 6px;
+	border: 1px solid var(--primary-color);
+	margin: 1rem;
+	padding: 1rem;
+	gap: 1rem;
+	transition: all 0.5s ease;
+	width: 90%;
+	height: 90%;
+	justify-content: center;
+}
+
+.grid-view .card-content {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+}
+
+.grid-view .member-card img {
+	height: auto;
+	margin-bottom: 1rem;
+}
+
+.grid-view .member-card h3 {
+	margin: 0.5rem;
+}
+
+.grid-view .member-card p {
+	margin: 2px 0;
+	padding: 0.5rem;
+}
+
+.grid-view .business-wrapper {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 0.5rem;
+}
+
+/* Member cards list view */
+.list-view .member-card {
+	display: grid;
+	grid-template-columns: 100px 1fr;
+	gap: 1rem;
+	padding: 1rem;
+	transition: all 0.5s ease;
+	align-items: center;
+	text-align: left;
+}
+
+.list-view .member-card:nth-child(odd) {
+	background-color: rgb(132, 146, 159, 0.3);
+}
+
+.list-view .member-card img {
+	grid-column: 1;
+	max-width: 100px;
+	height: auto;
+}
+
+.list-view .member-card h3,
+.list-view .member-card p,
+.list-view .member-card a {
+	margin: 0;
+	padding: 0;
+}
+
+.list-view .member-card .card-content {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+	width: 100%;
+	gap: 0.5rem;
+	text-align: center;
+}
+
+.list-view .member-card .card-content h3 {
+	grid-column: 1;
+}
+
+.list-view .member-card .card-content [data-type="membership"] {
+	grid-column: 1;
+}
+
+.list-view .member-card .card-content [data-type="address"] {
+	grid-column: 3;
+}
+
+.list-view .member-card .card-content [data-type="number"] {
+	grid-column: 4;
+}
+
+.list-view .member-card .card-content [data-type="website"] {
+	grid-column: 5;
+}
+
+/* Footer */
+.contact {
+	font-weight: 700;
+	margin: 0.5rem;
+}
+
+.contact-info p {
+	font-weight: 400;
+}
+
+.social-links a {
+	text-decoration: none;
+}
+
+.social-links img {
+	width: 5rem;
+}
+
+.copyright {
+	margin: 0.5rem;
+}
+
+/* ID Selectors */
+/* Home Page */
+/* Weather content */
+#current-weather-container,
+#weather-forecast-container {
+	padding: 1rem;
+}
+
+#current-weather-container {
+	display: grid;
+	grid-template-columns: auto auto;
+	align-items: center;
+}
+
+#current-weather-container p {
+	margin: 0.5rem;
+}
+
+#weather-icon {
+	grid-column: 1;
+	grid-row: 1 / span 6;
+	background-color: var(--accent1-color);
+	border-radius: 50px;
+	justify-self: center;
+}
+
+#weather-forecast-container {
+	padding-left: 1.5rem;
+}
+
+/* Spotlights */
+#spotlights-container {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 1rem;
+	margin: 1rem;
+	padding: 0.5rem;
+}
+
+/* Directory Page */
+/* Businesses grid & list view */
+#businesses.grid-view {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+	gap: 2rem;
+	justify-content: center;
+	margin: 1rem;
+	padding: 1rem;
+}
+
+#businesses.list-view {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	padding: 0 1rem;
+	width: 80%;
+	margin: 0 auto;
+}
+
+@media screen and (max-width: 768px) {
+	header {
+		flex-direction: column;
+		padding: 1rem;
+	}
+
+	footer {
+		grid-template-columns: 1fr;
+		justify-items: left;
+		padding: 1rem;
+	}
+
+	.logo {
+		margin-bottom: 1rem;
+	}
+
+	.logo img {
+		width: 40px;
+		height: 40px;
+		margin-right: 0.5rem;
+		margin-left: 0.5rem;
+	}
+
+	.logo h1 {
+		font-size: 1.5rem;
+	}
+
+	.nav-menu {
+		width: 100%;
+	}
+
+	.nav-menu ul {
+		gap: 1rem;
+		padding: 0;
+		margin: 0.5rem;
+		justify-content: center;
+	}
+
+	.call-button {
+		font-size: 1.1rem;
+		word-wrap: break-word;
+		overflow-wrap: break-word;
+	}
+
+	.section-grid {
+		grid-template-columns: 1fr;
+	}
+
+	#spotlights-container {
+		grid-template-columns: 1fr;
+	}
+
+	.list-view .member-card .card-content {
+		grid-template-columns: 1fr;
+		gap: 0.25rem;
+		text-align: left;
+	}
+
+	.list-view .member-card .card-content h3,
+	.list-view .member-card .card-content [data-type="membership"],
+	.list-view .member-card .card-content [data-type="address"],
+	.list-view .member-card .card-content [data-type="number"],
+	.list-view .member-card .card-content [data-type="website"] {
+		grid-column: 1;
+	}
+
+	.social-links {
+		align-self: center;
+	}
+}
+
+@media screen and (min-width: 481px) {
+	.hamburger-menu {
+		display: none;
+	}
+
+	#businesses.list-view {
+		width: 100%;
+		margin: 0;
+		padding: 0.5rem;
+	}
+}
+
+@media screen and (max-width: 480px) {
+	header {
+		flex-direction: row;
+		padding: 1rem;
+	}
+
+	footer {
+		grid-template-columns: 1fr;
+		gap: 1rem;
+		padding: 1rem;
+		justify-items: left;
+	}
+
+	.logo {
+		margin-bottom: 0;
+		margin-right: 5rem;
+	}
+
+	.logo h1 {
+		font-size: 1.2rem;
+		white-space: nowrap;
+	}
+
+	.nav-menu {
+		position: static;
+	}
+
+	.nav-menu ul {
+		display: none;
+	}
+
+	.hamburger-menu {
+		display: block;
+		font-size: 1.5rem;
+		cursor: pointer;
+		padding: 0.5rem;
+	}
+
+	.nav-menu.active ul {
+		display: flex;
+		flex-direction: column;
+		position: absolute;
+		top: 100%;
+		left: 0;
+		right: 0;
+		background-color: var(--primary-color);
+		padding: 1rem;
+		text-align: center;
+		z-index: 1000;
+	}
+
+	.hero-call {
+		margin-left: 2rem;
+	}
+
+	.call-button {
+		font-size: 1rem;
+	}
+
+	.event-card {
+		grid-template-columns: 1fr;
+	}
+
+	.spotlight-card img {
+		max-width: 80px;
+	}
+
+	.link {
+		padding: 0.5rem;
+		word-wrap: break-word;
+		word-break: break-all;
+		overflow-wrap: break-word;
+	}
+
+	#businesses.grid-view {
+		grid-template-columns: 1fr;
+		gap: 1rem;
+		margin: 0;
+		padding: 1rem;
+		max-width: 100%;
+	}
+
+	.grid-view .member-card {
+		width: 100%;
+		height: auto;
+		margin: 0;
+		padding: 1rem;
+		box-sizing: border-box;
+	}
+
+	#businesses.list-view {
+		width: 100%;
+		margin: 0;
+		padding: 0.5rem;
+	}
+
+	.list-view .member-card img {
+		max-width: 80px;
+	}
+
+	.list-view .member-card a {
+		margin: 0.5rem;
+		;
+	}
+
+	.list-view .member-card .card-content {
+		grid-template-columns: 1fr;
+		gap: 0.25rem;
+		text-align: left;
+	}
+
+	.list-view .member-card .card-content h3,
+	.list-view .member-card .card-content [data-type="membership"],
+	.list-view .member-card .card-content [data-type="address"],
+	.list-view .member-card .card-content [data-type="number"],
+	.list-view .member-card .card-content [data-type="website"] {
+		grid-column: 1;
+	}
+}
+
+@media screen and (max-width: 320px) {
+	#businessess.grid-view {
+		padding: 0.5rem;
+	}
+
+	#businesses.list-view {
+		padding: 0.25rem;
+	}
+
+	.logo h1 {
+		font-size: 1.2rem;
+	}
+
+	.logo p {
+		font-size: 0.9rem;
+	}
+
+	.logo img {
+		width: 30px;
+		height: 30px;
+	}
+}
