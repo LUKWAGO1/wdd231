@@ -162,10 +162,11 @@ footer {
 }
 
 .call-button:hover {
-	background-color: rgb(132, 146, 159, 0.8);
-	border: 2px solid whiteSSS;
-	color: var(--text2-color);
+    background-color: rgba(132, 146, 159, 0.8);
+    border: 2px solid white;  
+    color: var(--text2-color);
 }
+
 
 .hero img {
 	width: 100%;
