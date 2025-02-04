@@ -1,0 +1,794 @@
+/* Root Variables */
+:root {
+	--primary-color: #09253E;
+	--secondary-color: #361D2E;
+	--background-color: white;
+	--accent1-color: #F78A25;
+	--accent2-color: #84929f;
+	--text1-color: #171219;
+	--text2-color: #F9F9F9;
+	--link-color: #006400;
+}
+
+  
+  body, html {
+	font-family: "Quicksand", Arial, Helvetica, sans-serif;
+	color: var(--text1-color);
+	margin: 0;
+	padding: 0;
+	overflow-x: hidden;
+	
+}
+
+header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	background-color: var(--primary-color);
+	color: var(--text2-color);
+	padding: 1rem;
+	position: relative;
+}
+
+header h1 {
+	font-family: "Newsreader", Georgia, 'Times New Roman', serif;
+}
+  
+/* Class selectors */
+/* Header logo */
+.logo {
+	display: flex;
+	align-items: center;
+}
+
+.logo img {
+	width: 50px;
+	height: 50px;
+	margin-right: 1rem;
+	margin-left: 1rem;
+}
+
+.logo h1,
+.logo p {
+	margin: 0;
+}
+
+.logo div {
+	display: flex;
+	flex-direction: column;
+}
+
+/* Navbar */
+.nav-menu ul {
+	display: flex;
+	gap: 2rem;
+	list-style: none;
+	margin-right: 1rem;
+}
+
+.nav-menu a {
+	color: var(--text2-color);
+	text-decoration: none;
+}
+
+.nav-menu a:hover {
+	color: var(--accent1-color);
+	text-decoration: underline;
+}
+
+.nav-menu a.active {
+	color: var(--accent1-color);
+}
+
+.hamburger-menu {
+	display: none;
+	cursor: pointer;
+	padding: 0.5rem;
+	position: absolute;
+	top: 1rem;
+	right: 1rem;
+}
+  
+  /* Hero Section */
+  .hero {
+	position: relative;
+	height: 300px;
+	background-image: url("../images/chamberofcommerce.jpg");
+	background-size: cover;
+	background-position: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: white;
+	text-align: center;
+  }
+  
+  .hero-content h1 {
+	font-size: 50px;
+	margin-bottom: 1rem;
+	text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+  }
+  
+  .hero-content p {
+	font-size: 1.2rem;
+	
+  }
+  
+  .hero-button {
+	position: absolute;
+	bottom: 20px;
+	right: 20px;
+	padding: 15px 20px;
+	background-color: var(--primary-color);
+	color: var(--text-color);
+	border: none;
+	cursor: pointer;
+	font-weight: bold;
+	transition: var(--transition);
+  }
+  
+  .hero-button:hover {
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+	transform: translateY(-5px);
+	background-color: var(--secondary-color);
+	color: #fff;
+  }
+  
+  /* Content Section */
+  .content {
+	padding: 20px;
+  }
+  
+  .content h1 {
+	font-size: 24px;
+	font-weight: bold;
+  }
+  
+  /* Member Cards */
+  #memberContainer {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 20px;
+	justify-content: center;
+  }
+  
+  .grid-view #memberContainer {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+	gap: 20px;
+  }
+  
+  .list-view #memberContainer {
+	display: block;
+  }
+  
+  .grid-view .member-card {
+	width: 250px; 
+  }
+  
+  .list-view .member-card {
+	width: 100%; 
+  }
+  
+  .list-view {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+	gap: 20px;
+  }
+  
+  .member-item {
+	display: flex;
+	gap: 10px;
+	align-items: center;
+	border: 1px solid #ddd;
+	padding: 10px;
+	border-radius: 8px;
+  }
+  
+  .member-item img {
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+  }
+  
+  .member-info h3 {
+	margin: 0;
+	font-size: 1.2rem;
+  }
+  
+  .member-card {
+	background-color: var(--background-color);
+	padding: 20px;
+	text-align: center;
+	box-sizing: border-box;
+	transition: var(--transition);
+  }
+  
+  .member-card img {
+	width: 20%;
+	height: auto;
+  }
+  
+  .member-card h2 {
+	font-size: 18px;
+	font-weight: bold;
+  }
+  
+  .member-card p {
+	margin: 5px 0;
+  }
+  
+  .member-card a{
+	text-decoration: none;
+  }
+  
+  .member-card:hover{
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+	transform: translateY(-5px);
+	background-color: var(--secondary-color);
+	color: var(--background-color);
+  }
+  
+  /* Toggle View Button */
+  #toggleView {
+	margin: 20px 0;
+	padding: 10px 20px;
+	background-color: var(--primary-color);
+	border: none;
+	cursor: pointer;
+	font-weight: bold;
+	transition: var(--transition);
+  }
+  
+  #toggleView:hover {
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+	transform: translateY(-5px);
+	background-color: var(--secondary-color);
+	color: #fff;
+  }
+  
+  /* Footer */
+  .footer {
+	background-color: var(--primary-color);
+	color: var(--text2-color);
+	padding: 20px;
+	text-align: center;
+	color:var(--text2-color);
+	font-weight: bold;
+  }
+  
+  .footer .business-cards {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 20px;
+	gap: 20px;
+  }
+  
+  .footer .business-card {
+	background-color: #fff;
+	padding: 20px;
+	text-align: center;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	border-radius: 8px;
+	transition: var(--transition);
+  }
+  
+  .footer .business-card:hover {
+	transform: translateY(-10px);
+  }
+  
+  .footer .business-card img {
+	width: 80px;
+	height: 80px;
+	border-radius: 50%;
+	object-fit: cover;
+	margin-bottom: 15px;
+  }
+  
+  .footer .business-card .card-info {
+	font-size: 14px;
+	color: #333;
+  }
+  
+  .footer .social-icons i {
+	margin: 0 10px;
+	font-size: 24px;
+	color: #fff;
+	transition: color 0.3s ease;
+  }
+  
+  .footer .social-icons i:hover {
+	color: var(--secondary-color);
+  }
+  
+  /* Weather Section */
+  .weather {
+	background-color: #f9f9f9;
+	padding: 2rem;
+	border-radius: 10px;
+	margin: 2rem 0;
+	text-align: center;
+  }
+  
+  #weather-container {
+	margin-top: 1rem;
+  }
+  
+  #weather-description,
+  #temperature {
+	font-size: 1.2rem;
+	color: #333;
+  }
+  
+  #forecast {
+	display: flex;
+	justify-content: space-around;
+	margin-top: 1rem;
+  }
+  
+  #forecast div {
+	background-color: #fff;
+	padding: 1rem;
+	border-radius: 8px;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+	width: 30%;
+  }
+  
+  .current-events {
+	background-color: #fff;
+	padding: 2rem;
+	border-radius: 10px;
+	margin: 2rem 0;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .current-events h2 {
+	text-align: center;
+	font-size: 2rem;
+	color: #333;
+	margin-bottom: 1.5rem;
+  }
+  
+  .events-container {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1.5rem;
+	justify-content: center;
+  }
+  
+  .event-card {
+	background-color: #f9f9f9;
+	border: 1px solid #ddd;
+	border-radius: 10px;
+	padding: 1.5rem;
+	width: 100%;
+	max-width: 300px;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .event-card:hover {
+	transform: translateY(-5px);
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .event-card h3 {
+	font-size: 1.5rem;
+	color: #007bff;
+	margin-bottom: 0.5rem;
+  }
+  
+  .event-card p {
+	font-size: 1rem;
+	color: #555;
+	margin: 0.5rem 0;
+  }
+  
+  
+  /* Mobile Navigation */
+  .mobile-nav {
+	display: none;
+	flex-direction: column;
+	background-color: #fff;
+	position: absolute;
+	top: 50px; 
+	right: 0;
+	width: 100%;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .mobile-nav.open {
+	display: flex; 
+  }
+  
+  .mobile-nav.hidden {
+	display: none;
+  }
+  
+  .hamburger {
+	display: none;
+	flex-direction: column;
+	gap: 5px;
+	cursor: pointer;
+  }
+  
+  .hamburger span {
+	width: 25px;
+	height: 3px;
+	background-color: var(--text-color);
+  }
+  
+  
+  .membership-form {
+	max-width: 800px;
+	margin: 2rem auto;
+	padding: 2rem;
+	background: linear-gradient(145deg, #ffffff, #f9f9f9);
+	border-radius: 15px;
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+	border: 1px solid #e0e0e0;
+  }
+  
+  .membership-form h2 {
+	text-align: center;
+	font-size: 2rem;
+	color: #333;
+	margin-bottom: 1.5rem;
+	font-weight: 600;
+  }
+  
+  .membership-form form {
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
+  }
+  
+  .membership-form form div {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+  }
+  
+  .membership-form label {
+	font-size: 1rem;
+	color: #555;
+	font-weight: 500;
+  }
+  
+  .membership-form input,
+  .membership-form select,
+  .membership-form textarea {
+	padding: 0.75rem;
+	border: 1px solid #ddd;
+	border-radius: 8px;
+	font-size: 1rem;
+	color: #333;
+	background-color: #fafafa;
+	transition: all 0.3s ease;
+  }
+  
+  .membership-form input:focus,
+  .membership-form select:focus,
+  .membership-form textarea:focus {
+	border-color: #007bff;
+	box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+	outline: none;
+	background-color: #fff;
+  }
+  
+  .membership-form input[type="submit"] {
+	background: linear-gradient(145deg, #007bff, #0056b3);
+	color: white;
+	border: none;
+	padding: 1rem;
+	font-size: 1.1rem;
+	font-weight: 600;
+	border-radius: 8px;
+	cursor: pointer;
+	transition: all 0.3s ease;
+  }
+  
+  .membership-form input[type="submit"]:hover {
+	background: linear-gradient(145deg, #0056b3, #007bff);
+	transform: translateY(-2px);
+	box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3);
+  }
+  
+  .membership-form input[type="submit"]:active {
+	transform: translateY(0);
+	box-shadow: none;
+  }
+  
+  /* Animation for form inputs */
+  @keyframes slideIn {
+	from {
+	  opacity: 0;
+	  transform: translateY(20px);
+	}
+	to {
+	  opacity: 1;
+	  transform: translateY(0);
+	}
+  }
+  
+  .membership-form form div {
+	animation: slideIn 0.5s ease-out;
+	animation-fill-mode: both;
+  }
+  
+  .membership-form form div:nth-child(1) {
+	animation-delay: 0.1s;
+  }
+  
+  .membership-form form div:nth-child(2) {
+	animation-delay: 0.2s;
+  }
+  
+  .membership-form form div:nth-child(3) {
+	animation-delay: 0.3s;
+  }
+  
+  .membership-form form div:nth-child(4) {
+	animation-delay: 0.4s;
+  }
+  
+  .membership-form form div:nth-child(5) {
+	animation-delay: 0.5s;
+  }
+  
+  .membership-form form div:nth-child(6) {
+	animation-delay: 0.6s;
+  }
+  
+  .membership-form form div:nth-child(7) {
+	animation-delay: 0.7s;
+  }
+  
+  .membership-form form div:nth-child(8) {
+	animation-delay: 0.8s;
+  }
+  
+  .membership-form form div:nth-child(9) {
+	animation-delay: 0.9s;
+  }
+  
+  /* Modal Overlay */
+  .modal {
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.7);
+	z-index: 1000;
+	justify-content: center;
+	align-items: center;
+  }
+  
+  /* Modal Content */
+  .modal-content {
+	background-color: #fff;
+	padding: 2rem;
+	border-radius: 10px;
+	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+	max-width: 500px;
+	width: 90%;
+	position: relative;
+	animation: fadeIn 0.3s ease-out;
+  }
+  
+  /* Modal Heading */
+  .modal-content h4 {
+	margin-top: 0;
+	font-size: 1.5rem;
+	color: #333;
+  }
+  
+  /* Modal Paragraph */
+  .modal-content p {
+	font-size: 1rem;
+	color: #555;
+	line-height: 1.5;
+  }
+  
+  /* Close Button */
+  .modal-content .close-modal {
+	background-color: #007bff;
+	color: #fff;
+	border: none;
+	padding: 0.5rem 1rem;
+	border-radius: 5px;
+	cursor: pointer;
+	font-size: 1rem;
+	margin-top: 1rem;
+	transition: background-color 0.3s ease;
+  }
+  
+  .modal-content .close-modal:hover {
+	background-color: #0056b3;
+  }
+  
+  /* Animation for Modal */
+  @keyframes fadeIn {
+	from {
+	  opacity: 0;
+	  transform: translateY(-20px);
+	}
+	to {
+	  opacity: 1;
+	  transform: translateY(0);
+	}
+  }
+  
+  .membership-cards {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); 
+	gap: 30px;
+	padding: 40px;
+	margin: 20px 0;
+  }
+  
+  /* Card Styling */
+  .card {
+	background-color: #1f0606;
+	border: 1px solid #ddd;
+	border-radius: 8px;
+	width: 250px;
+	padding: 20px;
+	text-align: center;
+	box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+	cursor: pointer;
+	margin-bottom: 20px;
+  }
+  
+  /* Card Text */
+  .card h3 {
+	font-size: 1.3em;
+	color: #c29e9e;
+	font-weight: bold;
+	margin-bottom: 15px;
+  }
+  
+  .card p {
+	font-size: 1em;
+	color: #f7f5f5;
+	margin-bottom: 20px;
+  }
+  
+  /* Button Styling */
+  .card button {
+	background-color: #003366;
+	color: #fff;
+	border: none;
+	padding: 10px 20px;
+	font-size: 1em;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+  }
+  
+  .card button:hover {
+	background-color: #0056b3;
+  }
+  
+  /* Hover Effects */
+  .card:hover {
+	transform: translateY(-10px);
+	box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Specific Card Colors */
+  #np-card {
+	border-left: 5px solid #5bc0de; /* Light blue for NP */
+  }
+  
+  #bronze-card {
+	border-left: 5px solid #cd7f32; /* Bronze */
+  }
+  
+  #silver-card {
+	border-left: 5px solid #c0c0c0; /* Silver */
+  }
+  
+  #gold-card {
+	border-left: 5px solid #f39c12; /* Gold */
+  }
+  
+  
+  
+  @media (max-width: 768px) {
+	.hamburger {
+	  display: flex;
+	}
+  
+	.desktop-nav {
+	  display: none;
+	}
+  
+	.mobile-nav {
+	  display: none; 
+	  flex-direction: column;
+	  background-color: #fff; 
+	  position: absolute;
+	  top: 60px;
+	  right: 0;
+	  width: 100%;
+	  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	}
+  
+	.mobile-nav a {
+	  padding: 10px;
+	  border-bottom: 1px solid #ddd;
+	  text-align: center;
+	}
+  
+	.mobile-nav.open {
+	  display: flex; 
+	}
+  
+	.content .sections {
+	  flex-direction: column;
+	}
+  
+	.footer .business-cards {
+	  flex-direction: column;
+	  gap: 20px;
+	}
+  
+	.footer .contact-info {
+	  text-align: center;
+	}
+  
+	.desktop-nav {
+	  display: none;
+	}
+	
+	.hamburger {
+	  display: flex;
+	}
+  
+	.mobile-nav.hidden {
+	  display: flex;
+	}
+  
+	.membership-cards {
+	  display: flex;
+	  flex-direction: column;
+	  align-items: center;
+	}
+	
+	.card {
+	  width: 100%; 
+	  margin-bottom: 20px; 
+	}
+  
+	.events-container {
+	  flex-direction: column;
+	  align-items: center;
+	}
+  
+	.event-card {
+	  width: 90%;
+	}
+  
+  }
+  
+  @media (max-width: 480px) {
+	.hero-content h1 {
+		font-size: 28px;
+	  }
+	
+	  .hero-content p {
+		font-size: 1rem;
+	  }
+	
+	  .hero-button {
+		  bottom: 10px;
+		  right: 10px;
+		  padding: 10px 15px;
+		  font-size: 0.9rem;
+	  }
+  }
+
