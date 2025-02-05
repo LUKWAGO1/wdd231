@@ -147,24 +147,24 @@ footer {
 }
 
 .call-button {
-	display: inline-block;
-	background-color: var(--accent1-color);
-	color: var(--text1-color);
-	padding: 1rem;
-	border: 2px solid var(--secondary-color);
-	border-radius: 5px;
-	text-decoration: none;
-	font-weight: 600;
-	font-size: 1.2rem;
-	text-align: center;
-	transition: background-color 0.3s ease;
-	
+    display: inline-block;
+    background-color: #004466; /* Dark blue */
+    color: #ffffff; /* White text */
+    padding: 1rem;
+    border: 2px solid #ffaa00; /* High contrast orange */
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.2rem;
+    text-align: center;
+    transition: background-color 0.3s ease;
 }
+
 
 .call-button:hover {
     background-color: rgba(132, 146, 159, 0.8);
     border: 2px solid white;  
-    color: var(--text2-color);
+    color: #002233;
 }
 
 
