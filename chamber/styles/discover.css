@@ -1,0 +1,124 @@
+/* Main Content Styles */
+.discover {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.discover h1 {
+    font-family: var(--font-heading);
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.visit-message {
+    background-color: var(--accent-color);
+    padding: 1rem;
+    margin-bottom: 2rem;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.locations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    padding: 1rem;
+}
+
+.location-card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+}
+
+.location-card:hover {
+    transform: translateY(-5px);
+}
+
+.location-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 3px solid var(--secondary-color);
+}
+
+.location-info {
+    padding: 1rem;
+    text-align: center;
+}
+
+.location-info h3 {
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.location-info p {
+    font-size: 1rem;
+    color: var(--text-color);
+    opacity: 0.8;
+}
+/* Learn More Button Styles */
+.location-card .learn-more {
+    display: inline-block;
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 0.7rem 1.2rem;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.location-card .learn-more:hover {
+    background-color: var(--primary-color);
+    transform: scale(1.05);
+}
+
+
+/* Hover effect only on larger screens */
+@media screen and (min-width: 1025px) {
+    .location-card:hover img {
+        transform: scale(1.1);
+    }
+}
+
+.card-content {
+    padding: 1.5rem;
+}
+
+.card-content h2 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.25rem;
+    color: #1a365d;
+}
+
+.card-content address {
+    font-style: normal;
+    color: #4a5568;
+    margin-bottom: 0.5rem;
+}
+
+.card-content p {
+    color: #2d3748;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+.card-content button {
+    background-color: #2b4c7e;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.card-content button:hover {
+    background-color: #1a365d;
+}

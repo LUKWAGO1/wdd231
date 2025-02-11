@@ -1,0 +1,61 @@
+{
+    "locations": [
+      {
+        "title": "Kololo Independence Grounds",
+        "address": "Plot 123, Kololo Hill Drive",
+        "description": "Historic grounds where Uganda's independence was celebrated. Now hosts major events and recreational activities in the heart of Kampala.",
+        "url": "https://www.independent.co.ug/tag/kololo-independence-grounds/",
+        "image": "images/kololo.webp"
+      },
+      {
+        "title": "Uganda National Museum",
+        "address": "5-7 Kirabon Road, Kampala",
+        "description": "The oldest museum in East Africa, showcasing Uganda's cultural heritage through traditional artifacts, archaeology, and history exhibits.",
+        "url": "https://www.ugandamuseums.or.ug/",
+        "image": "images/museum .webp"
+      },
+      {
+        "title": "Nakasero Market",
+        "address": "Nakasero Hill, Central Division",
+        "description": "Vibrant local market offering fresh produce, spices, and crafts. Experience the authentic shopping culture of Kampala.",
+        "url": "https://nakaseromarket.ug/",
+        "image": "images/nakasero.webp"
+      },
+      {
+        "title": "Ndere Cultural Centre",
+        "address": "Plot 4505-4515, Kisaasi Road",
+        "description": "Showcasing traditional Ugandan dance and music performances in a beautiful outdoor amphitheater setting.",
+        "url": "https://ndere.com/",
+        "image": "images/ndere.webp"
+      },
+      {
+        "title": "Uganda Wildlife Education Centre",
+        "address": "Plot 56-57 Entebbe Road",
+        "description": "Conservation center featuring native wildlife and educational programs about Uganda's diverse ecosystems.",
+        "url": "https://uwec.ug/",
+        "image": "images/kololo.webp"
+      },
+      {
+        "title": "Kasubi Tombs",
+        "address": "Kasubi Hill, Kampala",
+        "description": "UNESCO World Heritage site and burial ground of Buganda kings, showcasing traditional architecture and cultural significance.",
+        "url": "https://whc.unesco.org/en/about/",
+        "image": "images/kasubi.webp"
+      },
+      {
+        "title": "Owino Market",
+        "address": "Kafumbe Mukasa Road",
+        "description": "One of East Africa's largest markets, offering everything from textiles to electronics in a bustling atmosphere.",
+        "url": "https://owino.ug/",
+        "image": "images/owino.webp"
+      },
+      {
+        "title": "Gaddafi National Mosque",
+        "address": "Old Kampala Hill",
+        "description": "Uganda's largest mosque, offering panoramic views of Kampala from its minaret and beautiful Islamic architecture.",
+        "url": "https://www.gaddafinationalmosque.com/",
+        "image": "images/kololo.webp"
+      }
+    ]
+  }
+  

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Discover page of the APV Chamber of Commerce site.">
+    <meta name="author" content="Lukwago Paul.">
+    <meta property="og:title" content="Discover - APV Chamber of Commerce">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://images.pexels.com/photos/1173771/pexels-photo-1173771.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1">
+    <meta property="og:url" content="https://Lukwago1.github.io/wdd231/chamber/discover.html">
+    <title>Discover - Chamber of Commerce</title>
+
+    <!-- Fonts & Styles -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/chamber.css">
+    <link rel="stylesheet" href="styles/discover.css">
+    <link rel="icon" href="chamber-favicon.ico" type="image/x-icon">
+
+    <!-- Scripts -->
+    <script src="scripts/getdates.js" defer></script>
+    <script src="scripts/menu.js" defer></script>
+    <script src="scripts/discover.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="images/apvlog.webp" alt="Logo of APV Chamber of Commerce">
+        </div>  
+        <nav class="nav-menu">
+            <div class="hamburger-menu">☰</div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="directory.html">Business Directory</a></li>
+                <li><a href="discover.html">Discover</a></li>
+                <li><a href="join.html">Join</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="discover">
+        <h1>Discover Kampala</h1>
+        
+        <div class="visit-message">
+            <p id="lastVisitMessage"></p>
+        </div>
+
+        <div class="locations-grid">
+            <!-- Location cards will be dynamically inserted here by JavaScript -->
+        </div>
+    </main>
+
+    <footer>
+        <div class="contact">
+            <p>Chamber of Commerce</p>
+            <div class="contact-info">
+                <p>Lukwago Paul, Kampala-Uganda</p>
+                <p>info@apvchamber.com</p>
+                <p>(+256) 7429-447-09</p>
+            </div>
+        </div>
+        <div class="social-links">
+            <a href="https://youtube.com">
+                <img src="images/youtube.svg" alt="Youtube">
+            </a>
+            <a href="https://x.com">
+                <img src="images/twitter.svg" alt="X / Twitter">
+            </a>
+            <a href="https://linkedin.com">
+                <img src="images/linkedin.svg" alt="LinkedIn">
+            </a>
+        </div>
+        <div class="copyright">
+            <p>WDD231 Class Project</p>
+            <p>Lukwago Paul</p>
+            <p>&copy;<span id="currentyear"></span> Chamber of Commerce</p>
+            <p id="lastModified"></p>
+        </div>
+    </footer>
+</body>
+</html>
