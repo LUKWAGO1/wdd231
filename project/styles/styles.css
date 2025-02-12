@@ -16,10 +16,15 @@ body {
 
 /* Header Styling */
 header {
-    background: #003366;
-    color: #fff;
+    background: #2980b9; /* Primary Blue Color */
+    color: white;
     padding: 20px;
     text-align: center;
+}
+
+h1 {
+    font-size: 2em;
+    margin: 0;
 }
 
 h2, h3 {
@@ -34,19 +39,31 @@ section {
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-section p{
+
+section p {
     color: #000407;
 }
 
 /* Typography */
 h2 {
-    border-bottom: 2px solid #2980b9;
+    border-bottom: 2px solid #2980b9; /* Primary Blue Color */
     padding-bottom: 5px;
 }
 
 p {
     font-size: 1.1em;
     line-height: 1.5;
+}
+
+/* Scenario List */
+#scenarios ul {
+    list-style-type: none;
+    margin-left: 0;
+}
+
+#scenarios li {
+    margin-bottom: 10px;
+    font-size: 1.1em;
 }
 
 /* Wireframe Images */
@@ -60,17 +77,28 @@ p {
 .wireframe img {
     max-width: 100%;
     height: auto;
-    border: 2px solid #2980b9;
+    border: 2px solid #2980b9; /* Primary Blue Color */
     border-radius: 5px;
 }
 
 /* Footer Styling */
 footer {
-    background: #003366;
-    color: #fff;
+    background: #2980b9; /* Primary Blue Color */
+    color: white;
     text-align: center;
     padding: 10px;
     margin-top: 20px;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: bold;
+}
+
+footer a:hover {
+    text-decoration: underline;
 }
 
 /* Responsive Design */
@@ -78,9 +106,13 @@ footer {
     .container {
         width: 95%;
     }
-    
+
     .wireframe {
         flex-direction: column;
         align-items: center;
+    }
+
+    header h1 {
+        font-size: 1.5em;
     }
 }
