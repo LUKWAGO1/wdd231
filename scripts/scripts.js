@@ -13,13 +13,22 @@ const certificateList = document.getElementById('certificateList');
 const filterAll = document.getElementById('filter-all');
 const filterCSE = document.getElementById('filter-cse');
 const filterWDD = document.getElementById('filter-wdd');
-const menuToggle = document.getElementById('menu-toggle');
+const menuToggle = document.querySelector('.hamburger-menu');
 const navbarUl = document.querySelector('.navbar ul');
 const totalCreditsDiv = document.getElementById('totalCredits');
 
 // Toggle mobile menu
+const menuToggle = document.querySelector('.hamburger-menu');
 menuToggle?.addEventListener('click', () => {
-    navbarUl.classList.toggle('show');
+    document.querySelector('.nav-menu ul').classList.toggle('show');
+});
+
+// Highlight active page link
+const currentPage = window.location.pathname.split('/').pop();
+document.querySelectorAll('.nav-menu a').forEach(link => {
+    if (link.getAttribute('href') === currentPage) {
+        link.classList.add('active');
+    }
 });
 
 // Filter courses
