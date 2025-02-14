@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const container = document.querySelector('.locations-grid');
             container.innerHTML = ''; // Clear existing content
             
-            data.locations.forEach(location => {
+            data.locations.slice(0, 8).forEach(location => {
                 const card = document.createElement('div');
                 card.classList.add('location-card');
                 
@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 let learnMoreLink = location.url ? `<a href="${location.url}" class="learn-more" target="_blank">Learn More</a>` : '';
 
                 card.innerHTML = `
-                    <img src="${location.image}" alt="${location.title}">
+                    <img src="${location.image}" alt="${location.title}" loading="lazy">
                     <h2>${location.title}</h2>
                     <p>${location.description}</p>
                     <p><strong>Address:</strong> ${location.address}</p>
