@@ -1,0 +1,133 @@
+:root {
+    --heading-font: 'Poppins', sans-serif;
+    --body-font: 'Liter', serif;
+    /* ...existing variables... */
+}
+
+body {
+    font-family: var(--body-font);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--heading-font);
+}
+
+.attributes-section {
+    margin-top: 120px;
+    padding: 2rem;
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 8px;
+}
+
+.attributes-section h1 {
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+}
+
+.attribution-group {
+    margin-bottom: 3rem;
+    padding: 2rem;
+    background-color: var(--dark-gray);
+    border-radius: 8px;
+    color: var(--text2-color);
+    transition: transform 0.3s ease;
+}
+
+.attribution-group:hover {
+    transform: translateY(-5px);
+}
+
+.attribution-group h2 {
+    color: var(--accent1-color);
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+}
+
+.attribution-group ul {
+    list-style: none;
+    padding: 0;
+}
+
+.attribution-group ul ul {
+    margin-left: 2rem;
+    margin-top: 0.5rem;
+}
+
+.attribution-group ul ul li {
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+}
+
+.attribution-group li {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.attribution-group a {
+    color: var(--accent1-color);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border-bottom: 1px dotted var(--accent1-color);
+    padding-bottom: 2px;
+}
+
+.attribution-group a:hover {
+    color: var(--text2-color);
+    text-decoration: underline;
+    border-bottom-style: solid;
+}
+
+/* Enhanced Navigation Styles for Attributes Page */
+.nav-menu {
+    width: 100%;
+    max-width: 800px;
+    margin-left: 3rem;
+}
+
+.nav-menu ul {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.nav-menu ul li {
+    margin: 0 2rem;
+}
+
+.nav-menu a {
+    font-size: 1.2rem;
+    padding: 0.7rem 1.5rem;
+    letter-spacing: 0.8px;
+    font-weight: 600;
+}
+
+.nav-menu a:hover {
+    transform: translateY(-2px);
+}
+
+@media screen and (max-width: 768px) {
+    .attributes-section {
+        margin-top: 100px;
+        padding: 1rem;
+    }
+    
+    .attribution-group {
+        padding: 1.5rem;
+    }
+    
+    .nav-menu {
+        margin-left: 1rem;
+    }
+    
+    .nav-menu ul li {
+        margin: 0 1rem;
+    }
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}

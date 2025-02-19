@@ -1,0 +1,50 @@
+[
+	{
+	  "name": "Deluxe Suite",
+	  "price": "$250 per night",
+	  "image": "deluxi.jpg",
+	  "description": "A luxurious suite with stunning river views and premium amenities."
+	},
+	{
+	  "name": "Riverside Restaurant",
+	  "price": "Fine Dining",
+	  "image": "rinnah.jpg",
+	  "description": "An elegant dining experience featuring gourmet local and international cuisine."
+	},
+	{
+	  "name": "Infinity Pool",
+	  "price": "Free for guests",
+	  "image": "swimingpool.webp",
+	  "description": "Relax by our stunning infinity pool overlooking the serene riverbanks."
+	},
+	{
+	  "name": "Wellness Spa",
+	  "price": "Starting at $80",
+	  "image": "couple-spa.jpg",
+	  "description": "Rejuvenate your body and mind with our traditional and modern spa treatments featuring local herbs."
+	},
+	{
+	  "name": "Executive Conference Center",
+	  "price": "$500 per day",
+	  "image": "confrence.jpg",
+	  "description": "State-of-the-art meeting facilities with panoramic river views, perfect for corporate events and gatherings."
+	},
+	{
+	  "name": "River Cruises",
+	  "price": "Starting at $150",
+	  "image": "river-cruise.jpg",
+	  "description": "Experience the beauty of the river with our guided boat tours and excursions."
+	},
+	{
+	  "name": "Fitness Center",
+	  "price": "Free for guests",
+	  "image": "gym.jpg",
+	  "description": "Stay active during your stay with our fully-equipped fitness center and yoga classes."
+	},
+	{
+	  "name": "Bike Rentals",
+	  "price": "$20 per day",
+	  "image": "bike-rental.jpg",
+	  "description": "Explore the local area with our complimentary bike rentals for guests."
+	}
+  ]	

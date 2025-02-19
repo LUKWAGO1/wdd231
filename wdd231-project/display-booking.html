@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Booking Confirmation - APV Riverside Grand Hotel">
+	<meta name="author" content="Lukwago Paul">
+	<meta property="og:title" content="Booking Confirmation - APV Riverside Grand Hotel">
+	<meta property="og:type" content="website">
+	<meta property="og:image" content="images/hotel-exterior.webp">
+	<meta property="og:url" content="https://apvriversidehotel.com/display-booking">
+	<title>Booking Confirmation - APV Riverside Grand Hotel</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Newsreader:wght@200..800&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="styles/normalize.css">
+	<link rel="stylesheet" href="styles/booking.css">
+	<link rel="icon" href="images/hotel-favicon.ico" type="image/x-icon">
+	<script src="scripts/getdates.js" defer></script>
+	<script src="scripts/menu.js" defer></script>
+</head>
+<body>
+	<header>
+		<div class="logo">
+			<img src="images/hotel-logo.webp" alt="Logo of APV Riverside Grand Hotel">
+		</div>
+		<nav class="nav-menu">
+			<div class="hamburger-menu">☰</div>
+			<ul>
+				<li><a href="index.html">Home</a></li>
+				<li><a href="about.html">About</a></li>
+				<li><a href="booking.html" class="active">Book</a></li>
+			</ul>
+		</nav>
+	</header>
+
+	<main>
+		<section class="booking-confirmation">
+			<div class="container">
+				<h2>Booking Confirmation</h2>
+				<div class="confirmation-details">
+					<div class="booking-timestamp">
+						<p><strong>Booking Date:</strong> <span id="bookingTimestamp"></span></p>
+					</div>
+					<p><strong>Check-in Date:</strong> <span id="confirmCheckIn"></span></p>
+					<p><strong>Check-out Date:</strong> <span id="confirmCheckOut"></span></p>
+					<p><strong>Number of Guests:</strong> <span id="confirmGuests"></span></p>
+					<p><strong>Room Type:</strong> <span id="confirmRoomType"></span></p>
+					<p><strong>First Name:</strong> <span id="confirmFirstName"></span></p>
+					<p><strong>Last Name:</strong> <span id="confirmLastName"></span></p>
+					<p><strong>Email Address:</strong> <span id="confirmEmail"></span></p>
+					<p><strong>Phone Number:</strong> <span id="confirmPhone"></span></p>
+					<p><strong>Special Requests:</strong> <span id="confirmRequests"></span></p>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<footer>
+		<div class="footer-content">
+			<div class="hotel-info">
+				<h3>APV Riverside Grand Hotel</h3>
+				<p>244 Riverside Drive</p>
+				<p>Kampala, Uganda</p>
+				<p>Tel: +256 742-944-709</p>
+				<p>Email: info@apvriverside.com</p>
+			</div>
+			<div class="quick-links">
+				<h3>Quick Links</h3>
+				<ul>
+					<li><a href="about.html">About Us</a></li>
+					<li><a href="index.html">Home</a></li>
+					<li><a href="booking.html">Booking</a></li>
+					<li><a href="attributes.html">Attributes</a></li>
+					
+				</ul>
+			</div>
+			<div class="social-links">
+				<h3>Connect With Us</h3>
+				<a href="https://facebook.com"><img src="images/facebook.svg" alt="Facebook" loading="lazy"></a>
+				<a href="https://instagram.com"><img src="images/instagram.svg" alt="Instagram" loading="lazy"></a>
+				<a href="https://twitter.com"><img src="images/twitter.svg" alt="Twitter" loading="lazy"></a>
+			</div>
+		</div>
+		<div class="copyright">
+			<p>&copy; <span id="currentyear"></span> APV Riverside Grand Hotel. All rights reserved.</p>
+			<p id="lastModified"></p>
+		</div>
+	</footer>
+
+	<script>
+		document.addEventListener('DOMContentLoaded', () => {
+			// Set current timestamp
+			const now = new Date();
+			const timestampOptions = {
+				year: 'numeric',
+				month: 'long',
+				day: 'numeric',
+				hour: '2-digit',
+				minute: '2-digit',
+				second: '2-digit',
+				hour12: true
+			};
+			document.getElementById('bookingTimestamp').textContent = now.toLocaleString('en-US', timestampOptions);
+
+			// Set current year
+			document.getElementById('currentyear').textContent = new Date().getFullYear();
+
+			// Get and display booking details
+			const params = new URLSearchParams(window.location.search);
+			
+			// Function to format date
+			function formatDate(dateString) {
+				return new Date(dateString).toLocaleDateString();
+			}
+			
+			// Check if we have booking data
+			if (!params.get('checkIn')) {
+				alert('No booking data received. Please fill out the booking form.');
+				window.location.href = 'booking.html';
+				return;
+			}
+			
+			// Display booking details
+			const fields = {
+				'checkIn': formatDate,
+				'checkOut': formatDate,
+				'guests': value => value,
+				'roomType': value => value.charAt(0).toUpperCase() + value.slice(1),
+				'firstName': value => value,
+				'lastName': value => value,
+				'email': value => value,
+				'phone': value => value,
+				'requests': value => value || 'None'
+			};
+
+			Object.entries(fields).forEach(([field, formatter]) => {
+				const element = document.getElementById(`confirm${field.charAt(0).toUpperCase() + field.slice(1)}`);
+				if (element) {
+					element.textContent = formatter(params.get(field));
+				}
+			});
+		});
+	</script>
+</body>
+</html>

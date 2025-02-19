@@ -1,0 +1,130 @@
+/* Page Load Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideInFromLeft {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInFromRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInFromTop {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes pulseGlow {
+    0% { box-shadow: 0 0 5px rgba(184, 134, 11, 0.5); }
+    50% { box-shadow: 0 0 20px rgba(184, 134, 11, 0.8); }
+    100% { box-shadow: 0 0 5px rgba(184, 134, 11, 0.5); }
+}
+
+/* Apply Animations to Elements */
+.hero-content {
+    animation: fadeIn 1.5s ease-out;
+}
+
+.nav-menu {
+    animation: slideInFromTop 0.5s ease-out;
+}
+
+.room-card, .info-card, .purpose-card {
+    animation: fadeIn 0.8s ease-out;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.room-card:hover, .info-card:hover, .purpose-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.cta-button {
+    animation: pulseGlow 2s infinite;
+    transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+    transform: scale(1.05);
+}
+
+/* Scroll Animations */
+.scroll-fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.scroll-fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Image Hover Effects */
+.room-card img {
+    transition: transform 0.5s ease;
+}
+
+.room-card:hover img {
+    transform: scale(1.1);
+}
+
+/* Text Animation */
+@keyframes textFocus {
+    0% { filter: blur(12px); opacity: 0; }
+    100% { filter: blur(0); opacity: 1; }
+}
+
+.hero-content h1 {
+    animation: textFocus 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+}
+
+/* Section Reveal Animation */
+@keyframes revealSection {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+section {
+    opacity: 0;
+    animation: revealSection 1s ease forwards;
+}
+
+/* Stagger children animations */
+.info-grid > *, .rooms-grid > * {
+    opacity: 0;
+    animation: fadeIn 0.5s ease forwards;
+}
+
+.info-grid > *:nth-child(1) { animation-delay: 0.2s; }
+.info-grid > *:nth-child(2) { animation-delay: 0.4s; }
+.info-grid > *:nth-child(3) { animation-delay: 0.6s; }

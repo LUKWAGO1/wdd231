@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Welcome to APV Riverside Grand Hotel - Luxury Accommodation">
+	<meta name="author" content="Lukwago Paul">
+	<meta property="og:title" content="APV Riverside Grand Hotel">
+	<meta property="og:type" content="website">
+	<meta property="og:image" content="images/hotel-exterior.webp">
+	<meta property="og:url" content="https://apvriversidehotel.com">
+	<title>APV Riverside Grand Hotel</title>
+	<!-- Fonts & Styles -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Newsreader:wght@200..800&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="styles/normalize.css">
+	<link rel="stylesheet" href="styles/home.css">
+	<link rel="stylesheet" href="styles/services.css">
+	<link rel="icon" href="images/favicon.jpg" type="image/x-icon">
+	<!-- Scripts -->
+	<script src="scripts/main.js" defer></script>
+	
+</head>
+
+<body>
+	<header>
+		<div class="logo">
+			<img src="images/hotellog.webp" alt="Logo of APV Riverside Grand Hotel">
+		</div>
+		<nav class="nav-menu">
+			<div class="hamburger-menu">☰</div>
+			<ul>
+				<li><a href="index.html" class="active">Home</a></li>
+				<li><a href="about.html">About</a></li>
+				<li><a href="booking.html">Book</a></li>
+			</ul>
+		</nav>
+	</header>
+
+	<main>
+		<div class="hero">
+			<picture>
+				<source srcset="images/hotel-hero-small.webp" media="(max-width: 500px)">
+				<source srcset="images/hotel-hero-medium.webp" media="(max-width: 1000px)">
+				<img src="images/hotelzon.jpg" alt="APV Riverside Grand Hotel Exterior" width="1500" height="750">
+			</picture>
+			<div class="hero-content">
+				<h1>APV Riverside Grand Hotel</h1>
+				<p>Experience the perfect blend of luxury, comfort, and breathtaking waterfront views at APV Riverside Grand Hotel.</p>
+				<div class="hero-cta">
+					<a href="booking.html" class="cta-button">Book Your Stay</a>
+				</div>
+			</div>
+		</div>
+
+		<section class="hotel-purpose">
+			<h2>Welcome to Your Riverside Sanctuary <br>Why Choose Us</br></h2>
+			        
+			<div class="purpose-content">
+				<div class="purpose-card">
+					<h3>Business Excellence</h3>
+					<p>Designed for corporate travelers, our state-of-the-art conference facilities and dedicated business center make APV Riverside the premier choice for professional gatherings in Kampala.</p>
+				</div>
+				
+				<div class="purpose-card">
+					<h3>Cultural Gateway</h3>
+					<p>Positioned in the heart of Kampala, we serve as your gateway to Uganda's rich cultural heritage, offering curated local experiences and traditional hospitality blended with modern luxury.</p>
+				</div>
+				
+				<div class="purpose-card">
+					<h3>Riverside Serenity</h3>
+					<p>Our unique location along the serene riverbanks provides a peaceful retreat within the city, featuring rooms with panoramic water views and outdoor dining experiences.</p>
+				</div>
+			</div>
+		</section>
+		<section class="quick-info">
+			<div class="info-grid">
+				<div class="info-card">
+					<h3>Direct Booking</h3>
+					<p>+256 742-944-709</p>
+				</div>
+				<div class="info-card">
+					<h3>Email Reservations</h3>
+					<p>reservations@apvriverside.com</p>
+				</div>
+				<div class="info-card">
+					<h3>Location</h3>
+					<p>244 Riverside Drive, Kampala</p>
+				</div>
+			</div>
+		</section>
+
+		<section class="rooms-preview">
+			<h2>Accommodations</h2>
+			<div class="rooms-grid">
+				<div class="room-card">
+					<img src="images/delux.webp" alt="Deluxe Room" width="400" height="300" loading="lazy">
+					<div class="room-info">
+						<h3>Deluxe Room</h3>
+						<p>Luxurious comfort with riverside views</p>
+					</div>
+				</div>
+				
+				<div class="room-card">
+					<img src="images/ordinary.webp" alt="Ordinary Room" width="400" height="300" loading="lazy">
+					<div class="room-info">
+						<h3>Ordinary Room</h3>
+						<p>Cozy and affordable with essential amenities</p>
+					</div>
+				</div>
+		
+				<div class="room-card">
+					<img src="images/executive.webp" alt="Executive Suite" width="400" height="300" loading="lazy">
+					<div class="room-info">
+						<h3>Executive Suite</h3>
+						<p>Premium space with exclusive services</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<h2 class="services-heading">Our Services & Amenities</h2>
+		<div id="services-container"></div>
+
+		<section class="booking-form">
+			<h2>Make a Reservation</h2>
+			<form id="reservation-form" action="process-booking.php" method="POST">
+				<div class="form-grid">
+					<input type="date" name="check-in" required>
+					<input type="date" name="check-out" required>
+					<select name="room-type" required>
+						<option value="">Select Room Type</option>
+						<option value="ordinary">Ordinary</option>
+						<option value="deluxe">Deluxe Room</option>
+						<option value="suite">Executive Suite</option>
+					</select>
+					<button type="submit" class="submit-button">Check Availability</button>
+				</div>
+			</form>
+		</section>
+
+		<section class="guest-reviews">
+			<h2>Guest Reviews</h2>
+			<div class="reviews-container" id="reviews-container">
+				<!-- Reviews will be loaded dynamically with JavaScript -->
+			</div>
+			<div class="add-review">
+				<h3>Leave a Review</h3>
+				<form id="review-form">
+					<input type="text" id="reviewer-name" placeholder="Your Name" required>
+					<input type="file" id="reviewer-image" accept="image/*" required>
+					<select id="review-rating" required>
+						<option value="">Select Rating</option>
+						<option value="5">5 - Excellent</option>
+						<option value="4">4 - Very Good</option>
+						<option value="3">3 - Good</option>
+						<option value="2">2 - Fair</option>
+						<option value="1">1 - Poor</option>
+					</select>
+					<textarea id="review-comment" placeholder="Your Review" required></textarea>
+					<button type="submit">Submit Review</button>
+				</form>
+			</div>
+		</section>
+
+	</main>
+
+	<footer>
+		<div class="footer-content">
+			<div class="hotel-info">
+				<h3>APV Riverside Grand Hotel</h3>
+				<p>244 Riverside Drive</p>
+				<p>Kampala, Uganda</p>
+				<p>Tel: +256 742-944-709</p>
+				<p>Email: info@apvriverside.com</p>
+			</div>
+			<div class="quick-links">
+				<h3>Quick Links</h3>
+				<ul>
+					<li><a href="about.html">About Us</a></li>
+					<li><a href="index.html">Home</a></li>
+					<li><a href="booking.html">Booking</a></li>
+					<li><a href="attributes.html">Attributes</a></li>
+				</ul>
+			</div>
+			<div class="social-links">
+				<h3>Connect With Us</h3>
+				<a href="https://facebook.com"><img src="images/facebook.svg" alt="Facebook"></a>
+				<a href="https://instagram.com"><img src="images/instagram.svg" alt="Instagram"></a>
+				<a href="https://linkedin.com"><img src="images/linkedin.svg" alt="LinkedIn"></a>
+				<a href="https://youtube.com"><img src="images/youtube.svg" alt="YouTube"></a>
+				<a href="https://twitter.com"><img src="images/twitter.svg" alt="Twitter"></a>
+			</div>
+		</div>
+		<div class="copyright">
+			<p>&copy; <span id="currentyear"></span> APV Riverside Grand Hotel. All rights reserved.</p>
+			<p id="lastModified"></p>
+			
+		</div>
+	</footer>
+	<!-- Modal -->
+<div id="detailsModal" class="modal">
+	<div class="modal-content">
+		<span class="close">&times;</span>
+		<h2 id="modalTitle"></h2>
+		<p id="modalDescription"></p>
+		<img id="modalImage" src="" alt="" width="300" loading="lazy">
+		<p id="modalPrice"></p>
+	</div>
+</div>
+
+</body>
+</html>
