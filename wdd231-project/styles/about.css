@@ -33,63 +33,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Header Styles */
-header {
-	background-color: var(--primary-color);
-	padding: 1rem;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	position: fixed;
-	width: 100%;
-	top: 0;
-	z-index: 1000;
-	box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-}
-
-.logo img {
-	height: 60px;
-	width: auto;
-}
-
-/* Header and Navigation Styles */
-.nav-menu ul {
-    display: flex;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-.nav-menu ul li {
-    margin: 0 1.5rem;
-}
-
-.nav-menu a {
-    color: var(--text2-color);
-    text-decoration: none;
-    font-weight: 600;
-    padding: 0.5rem 1rem;
-    transition: all 0.3s ease;
-    display: block;
-    font-size: 1.1rem;
-    letter-spacing: 0.5px;
-}
-
-.nav-menu a:hover {
-    color: var(--accent1-color);
-    transform: translateY(-2px);
-}
-
-.nav-menu a.active {
-    color: var(--accent1-color);
-    border-bottom: 2px solid var(--accent1-color);
-}
-
-.hamburger-menu {
-	display: none;
-	color: var(--text2-color);
-	font-size: 1.5rem;
-	cursor: pointer;
-}
 
 /* Hero Section */
 .about-hero {
@@ -200,7 +143,7 @@ section h2 {
 .milestone {
     text-align: center;
     padding: 2rem;
-    background-color: var (--dark-orange);  /* Changed to dark orange */
+    background-color: var(--dark-orange);  /* Fixed var() syntax */
     border-radius: 8px;
     transition: transform 0.3s ease;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -347,7 +290,7 @@ section h2 {
 }
 
 .award-card p {
-    color: var (--text2-color);
+    color: var(--text2-color);  /* Fixed var() syntax */
     font-size: 1.1rem;
 }
 
