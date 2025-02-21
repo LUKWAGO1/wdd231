@@ -217,4 +217,49 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // Array of featured amenities
+    const hotelAmenities = [
+        { name: 'Swimming Pool', available: true, icon: '🏊‍♂️' },
+        { name: 'Spa Services', available: true, icon: '💆‍♀️' },
+        { name: 'Restaurant', available: true, icon: '🍽️' },
+        { name: 'Fitness Center', available: true, icon: '💪' },
+        { name: 'Conference Room', available: true, icon: '👥' },
+        { name: 'Room Service', available: true, icon: '🛎️' }
+    ];
+
+    // Display amenities using array methods
+    const amenitiesContainer = document.querySelector('.amenities-grid');
+    if (amenitiesContainer) {
+        const availableAmenities = hotelAmenities
+            .filter(amenity => amenity.available)
+            .map(amenity => `
+                <div class="amenity-card">
+                    <span class="amenity-icon">${amenity.icon}</span>
+                    <h3>${amenity.name}</h3>
+                </div>
+            `);
+
+        amenitiesContainer.innerHTML = availableAmenities.join('');
+    }
+
+    // Array of room types with sorting functionality
+    const roomTypes = [
+        { type: 'Ordinary', price: 100, capacity: 2 },
+        { type: 'Deluxe', price: 150, capacity: 3 },
+        { type: 'Suite', price: 250, capacity: 4 }
+    ];
+
+    // Sort rooms by price and display
+    const sortedRooms = roomTypes
+        .sort((a, b) => a.price - b.price)
+        .forEach(room => {
+            const roomSelect = document.querySelector('select[name="room-type"]');
+            if (roomSelect) {
+                const option = document.createElement('option');
+                option.value = room.type.toLowerCase();
+                option.textContent = `${room.type} - $${room.price}/night`;
+                roomSelect.appendChild(option);
+            }
+        });
 });
