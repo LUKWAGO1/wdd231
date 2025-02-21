@@ -135,4 +135,86 @@ document.addEventListener('DOMContentLoaded', () => {
         img.addEventListener('load', () => img.classList.add('loaded'));
         if (img.complete) img.classList.add('loaded');
     });
+
+    function displayRoomPrices(roomType) {
+        let price;
+        let amenities;
+
+        // Conditional branching for room prices and amenities
+        if (roomType === 'ordinary') {
+            price = '$100';
+            amenities = ['Basic WiFi', 'TV', 'Air Conditioning'];
+        } else if (roomType === 'deluxe') {
+            price = '$150';
+            amenities = ['High-speed WiFi', 'Smart TV', 'Mini Bar', 'City View'];
+        } else if (roomType === 'suite') {
+            price = '$250';
+            amenities = ['Premium WiFi', '4K TV', 'Full Bar', 'River View', 'Butler Service'];
+        } else {
+            price = 'Contact for Price';
+            amenities = ['Custom Experience'];
+        }
+
+        return { price, amenities };
+    }
+
+    // Room selection handler with conditional logic
+    const roomSelect = document.querySelector('select[name="room-type"]');
+    if (roomSelect) {
+        roomSelect.addEventListener('change', (event) => {
+            const selectedRoom = event.target.value;
+            const { price, amenities } = displayRoomPrices(selectedRoom);
+            
+            // Update price display if it exists
+            const priceDisplay = document.querySelector('.price-display');
+            if (priceDisplay && selectedRoom) {
+                priceDisplay.textContent = `Price per night: ${price}`;
+                
+                // Conditionally show special offer
+                if (selectedRoom === 'suite') {
+                    priceDisplay.innerHTML += '<br><span class="special-offer">Special: Includes Free Breakfast!</span>';
+                }
+            }
+            
+            // Update amenities if container exists
+            const amenitiesContainer = document.querySelector('.amenities-list');
+            if (amenitiesContainer && selectedRoom) {
+                amenitiesContainer.innerHTML = '<h3>Included Amenities:</h3>' +
+                    amenities.map(item => `<li>${item}</li>`).join('');
+            }
+        });
+    }
+
+    // Booking validation with conditional checks
+    const bookingForm = document.getElementById('reservation-form');
+    if (bookingForm) {
+        bookingForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const checkIn = new Date(document.querySelector('[name="check-in"]').value);
+            const checkOut = new Date(document.querySelector('[name="check-out"]').value);
+            const roomType = document.querySelector('[name="room-type"]').value;
+
+            // Multiple conditional validations
+            if (!checkIn || !checkOut || !roomType) {
+                alert('Please fill in all required fields.');
+                return;
+            } else if (checkOut <= checkIn) {
+                alert('Check-out date must be after check-in date.');
+                return;
+            } else if (checkIn < new Date()) {
+                alert('Check-in date cannot be in the past.');
+                return;
+            } else {
+                // If all conditions pass, proceed with booking
+                const daysStaying = (checkOut - checkIn) / (1000 * 60 * 60 * 24);
+                const { price } = displayRoomPrices(roomType);
+                const numericPrice = parseInt(price.replace(/[^0-9]/g, ''));
+                const totalPrice = numericPrice * daysStaying;
+
+                if (confirm(`Total for ${daysStaying} nights: $${totalPrice}. Proceed with booking?`)) {
+                    bookingForm.submit();
+                }
+            }
+        });
+    }
 });

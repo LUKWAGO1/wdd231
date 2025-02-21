@@ -1,3 +1,48 @@
+// Room Service Object
+const RoomService = {
+    roomTypes: {
+        ordinary: {
+            name: "Ordinary Room",
+            basePrice: 100,
+            amenities: ["Basic WiFi", "TV", "Air Conditioning"],
+            maxGuests: 2
+        },
+        deluxe: {
+            name: "Deluxe Room",
+            basePrice: 150,
+            amenities: ["High-speed WiFi", "Smart TV", "Mini Bar", "City View"],
+            maxGuests: 3
+        },
+        suite: {
+            name: "Executive Suite",
+            basePrice: 250,
+            amenities: ["Premium WiFi", "4K TV", "Full Bar", "River View", "Butler Service"],
+            maxGuests: 4
+        }
+    },
+
+    calculatePrice: function(roomType, nights, guests) {
+        const room = this.roomTypes[roomType];
+        if (!room) return 0;
+        
+        let price = room.basePrice;
+        // Add 25% for each additional guest beyond 1
+        if (guests > 1) {
+            price += (price * 0.25 * (guests - 1));
+        }
+        return price * nights;
+    },
+
+    getRoomInfo: function(roomType) {
+        return this.roomTypes[roomType] || null;
+    },
+
+    getAmenities: function(roomType) {
+        const room = this.roomTypes[roomType];
+        return room ? room.amenities : [];
+    }
+};
+
 document.addEventListener("DOMContentLoaded", function () {
     const bookingForm = document.getElementById("reservation-form");
 
@@ -97,6 +142,53 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    const roomSelect = document.querySelector('select[name="room-type"]');
+    const guestsSelect = document.querySelector('select[name="guests"]');
+    
+    if (roomSelect) {
+        roomSelect.addEventListener('change', (e) => {
+            const selectedRoom = e.target.value;
+            const roomInfo = RoomService.getRoomInfo(selectedRoom);
+            
+            if (roomInfo) {
+                // Update max guests dropdown
+                updateGuestsOptions(roomInfo.maxGuests);
+                
+                // Display amenities if container exists
+                const amenitiesContainer = document.querySelector('.amenities-list');
+                if (amenitiesContainer) {
+                    const amenities = RoomService.getAmenities(selectedRoom);
+                    amenitiesContainer.innerHTML = `
+                        <h3>Room Amenities:</h3>
+                        <ul>
+                            ${amenities.map(item => `<li>${item}</li>`).join('')}
+                        </ul>
+                    `;
+                }
+            }
+        });
+    }
+
+    function updateGuestsOptions(maxGuests) {
+        if (guestsSelect) {
+            const currentValue = guestsSelect.value;
+            guestsSelect.innerHTML = '<option value="">Select Guests</option>';
+            
+            for (let i = 1; i <= maxGuests; i++) {
+                const option = document.createElement('option');
+                option.value = i;
+                option.textContent = `${i} Guest${i > 1 ? 's' : ''}`;
+                guestsSelect.appendChild(option);
+            }
+
+            if (currentValue && currentValue <= maxGuests) {
+                guestsSelect.value = currentValue;
+            }
+        }
+    }
 });
 
 function handleFormSubmit(event) {
