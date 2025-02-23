@@ -69,6 +69,12 @@ h1, h2, h3, h4, h5, h6 {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 2rem;
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    margin: 2rem auto;
+    max-width: 800px;
 }
 
 .booking-form {
@@ -267,6 +273,63 @@ footer {
     z-index: 1000;
 }
 
+/* Booking Confirmation Section */
+.booking-confirmation {
+    padding: 2rem;
+    max-width: 800px;
+    margin: 2rem auto;
+    background-color: #fff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.booking-confirmation h2 {
+    color: #2c3e50;
+    text-align: center;
+    margin: 2rem 0;
+    font-size: 2.5rem;
+    font-weight: 600;
+    padding: 1rem;
+    text-transform: uppercase;
+}
+
+.booking-confirmation h2 br {
+    margin: 0.5rem 0;
+}
+
+.confirmation-details {
+    display: grid;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.confirmation-details p {
+    margin: 0.5rem 0;
+    padding: 0.8rem;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.confirmation-details strong {
+    color: #2c3e50;
+    min-width: 150px;
+}
+
+.confirmation-details span {
+    color: #34495e;
+    flex: 1;
+    padding-left: 1rem;
+}
+
+.booking-timestamp {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px dashed #ccc;
+}
+
 /* Media Queries */
 @media screen and (max-width: 768px) {
     .hero-content h1 {
@@ -303,6 +366,18 @@ footer {
     .nav-menu.active ul {
         display: flex;
         flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .confirmation-details p {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .confirmation-details span {
+        padding-left: 0;
+        padding-top: 0.5rem;
     }
 }
 
