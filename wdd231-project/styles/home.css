@@ -86,7 +86,7 @@ h1, h2, h3, h4, h5, h6 {
 .hero-cta .cta-button {
 	display: inline-block;
 	background-color: black;
-	color: var #FFFFFF;
+	color: #FFFFFF;  /* Fixed: removed 'var' */
 	padding: 1rem 2rem;
 	border-radius: 5px;
 	text-decoration: none;
@@ -95,7 +95,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .hero-cta .cta-button:hover {
-	background-color: var #0A0A23;
+	background-color: #0A0A23;  /* Fixed: removed 'var' */
 	transform: translateY(-2px);
 	box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
