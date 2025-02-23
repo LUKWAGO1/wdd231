@@ -43,90 +43,49 @@ const RoomService = {
     }
 };
 
-document.addEventListener("DOMContentLoaded", function () {
-    const bookingForm = document.getElementById("reservation-form");
-
-    bookingForm.addEventListener("submit", function (event) {
-        event.preventDefault(); // Prevent default form submission
-        
-        const checkIn = document.querySelector("input[name='check-in']").value;
-        const checkOut = document.querySelector("input[name='check-out']").value;
-        const roomType = document.querySelector("select[name='room-type']").value;
-        
-        if (!checkIn || !checkOut || !roomType) {
-            alert("Please fill in all fields before submitting.");
-            return;
-        }
-
-        if (new Date(checkIn) >= new Date(checkOut)) {
-            alert("Check-out date must be after check-in date.");
-            return;
-        }
-
-        alert("Booking submitted successfully! We will contact you shortly.");
-        bookingForm.submit(); // Proceed with form submission
-    });
-});
-
 document.addEventListener('DOMContentLoaded', () => {
+    // Get form elements
     const bookingForm = document.getElementById('bookingForm');
     const checkInInput = document.getElementById('checkIn');
     const checkOutInput = document.getElementById('checkOut');
-
-    // Set minimum date for check-in to today
-    const today = new Date().toISOString().split('T')[0];
-    checkInInput.min = today;
-
-    // Update check-out minimum date when check-in date changes
-    checkInInput.addEventListener('change', () => {
-        const checkInDate = new Date(checkInInput.value);
-        const minCheckOutDate = new Date(checkInDate);
-        minCheckOutDate.setDate(checkInDate.getDate() + 1);
-        checkOutInput.min = minCheckOutDate.toISOString().split('T')[0];
-        
-        // Clear check-out date if it's before new check-in date
-        if (checkOutInput.value && new Date(checkOutInput.value) <= checkInDate) {
-            checkOutInput.value = '';
-        }
-    });
-
-    // Form submission handling
-    bookingForm.addEventListener('submit', handleFormSubmit);
-
-    // Room type selection handling
     const roomTypeSelect = document.getElementById('roomType');
     const guestsSelect = document.getElementById('guests');
 
-    roomTypeSelect.addEventListener('change', () => {
-        // Update max guests based on room type
-        const maxGuests = {
-            'standard': 2,
-            'deluxe': 3,
-            'suite': 4,
-            'presidential': 4
-        };
-
-        const selectedRoom = roomTypeSelect.value;
-        if (selectedRoom) {
-            const max = maxGuests[selectedRoom];
-            updateGuestsOptions(max);
-        }
-    });
-
-    function updateGuestsOptions(maxGuests) {
-        const currentValue = guestsSelect.value;
-        guestsSelect.innerHTML = '<option value="">Select</option>';
+    // Set minimum date for check-in to today
+    const today = new Date().toISOString().split('T')[0];
+    if (checkInInput) {
+        checkInInput.min = today;
         
-        for (let i = 1; i <= maxGuests; i++) {
-            const option = document.createElement('option');
-            option.value = i;
-            option.textContent = `${i} Guest${i > 1 ? 's' : ''}`;
-            guestsSelect.appendChild(option);
-        }
+        // Update check-out minimum date when check-in date changes
+        checkInInput.addEventListener('change', () => {
+            const checkInDate = new Date(checkInInput.value);
+            const minCheckOutDate = new Date(checkInDate);
+            minCheckOutDate.setDate(checkInDate.getDate() + 1);
+            checkOutInput.min = minCheckOutDate.toISOString().split('T')[0];
+            
+            // Clear check-out date if it's before new check-in date
+            if (checkOutInput.value && new Date(checkOutInput.value) <= checkInDate) {
+                checkOutInput.value = '';
+            }
+        });
+    }
 
-        if (currentValue && currentValue <= maxGuests) {
-            guestsSelect.value = currentValue;
-        }
+    // Room type selection handler
+    if (roomTypeSelect) {
+        roomTypeSelect.addEventListener('change', (e) => {
+            const selectedRoom = e.target.value;
+            const roomInfo = RoomService.getRoomInfo(selectedRoom);
+            
+            if (roomInfo) {
+                updateGuestsOptions(roomInfo.maxGuests);
+                updateAmenitiesDisplay(selectedRoom);
+            }
+        });
+    }
+
+    // Form submission handler
+    if (bookingForm) {
+        bookingForm.addEventListener('submit', handleFormSubmit);
     }
 
     // Add smooth scrolling for all anchor links
@@ -144,52 +103,38 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-document.addEventListener('DOMContentLoaded', () => {
-    const roomSelect = document.querySelector('select[name="room-type"]');
-    const guestsSelect = document.querySelector('select[name="guests"]');
+// Helper Functions
+function updateGuestsOptions(maxGuests) {
+    const guestsSelect = document.getElementById('guests');
+    if (!guestsSelect) return;
+
+    const currentValue = guestsSelect.value;
+    guestsSelect.innerHTML = '<option value="">Select Guests</option>';
     
-    if (roomSelect) {
-        roomSelect.addEventListener('change', (e) => {
-            const selectedRoom = e.target.value;
-            const roomInfo = RoomService.getRoomInfo(selectedRoom);
-            
-            if (roomInfo) {
-                // Update max guests dropdown
-                updateGuestsOptions(roomInfo.maxGuests);
-                
-                // Display amenities if container exists
-                const amenitiesContainer = document.querySelector('.amenities-list');
-                if (amenitiesContainer) {
-                    const amenities = RoomService.getAmenities(selectedRoom);
-                    amenitiesContainer.innerHTML = `
-                        <h3>Room Amenities:</h3>
-                        <ul>
-                            ${amenities.map(item => `<li>${item}</li>`).join('')}
-                        </ul>
-                    `;
-                }
-            }
-        });
+    for (let i = 1; i <= maxGuests; i++) {
+        const option = document.createElement('option');
+        option.value = i;
+        option.textContent = `${i} Guest${i > 1 ? 's' : ''}`;
+        guestsSelect.appendChild(option);
     }
 
-    function updateGuestsOptions(maxGuests) {
-        if (guestsSelect) {
-            const currentValue = guestsSelect.value;
-            guestsSelect.innerHTML = '<option value="">Select Guests</option>';
-            
-            for (let i = 1; i <= maxGuests; i++) {
-                const option = document.createElement('option');
-                option.value = i;
-                option.textContent = `${i} Guest${i > 1 ? 's' : ''}`;
-                guestsSelect.appendChild(option);
-            }
-
-            if (currentValue && currentValue <= maxGuests) {
-                guestsSelect.value = currentValue;
-            }
-        }
+    if (currentValue && currentValue <= maxGuests) {
+        guestsSelect.value = currentValue;
     }
-});
+}
+
+function updateAmenitiesDisplay(roomType) {
+    const amenitiesContainer = document.querySelector('.amenities-list');
+    if (!amenitiesContainer) return;
+
+    const amenities = RoomService.getAmenities(roomType);
+    amenitiesContainer.innerHTML = `
+        <h3>Room Amenities:</h3>
+        <ul>
+            ${amenities.map(item => `<li>${item}</li>`).join('')}
+        </ul>
+    `;
+}
 
 function handleFormSubmit(event) {
     event.preventDefault();
@@ -198,25 +143,8 @@ function handleFormSubmit(event) {
         return false;
     }
 
-    // Collect form data
-    const formData = {
-        checkIn: document.getElementById('checkIn').value,
-        checkOut: document.getElementById('checkOut').value,
-        guests: document.getElementById('guests').value,
-        roomType: document.getElementById('roomType').value,
-        firstName: document.getElementById('firstName').value,
-        lastName: document.getElementById('lastName').value,
-        email: document.getElementById('email').value,
-        phone: document.getElementById('phone').value,
-        requests: document.getElementById('requests').value
-    };
-
-    // Create query string from form data
-    const queryString = Object.keys(formData)
-        .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(formData[key])}`)
-        .join('&');
-
-    // Redirect to display-booking.html with form data
+    const formData = collectFormData();
+    const queryString = createQueryString(formData);
     window.location.href = `display-booking.html?${queryString}`;
     
     return false;
@@ -245,4 +173,24 @@ function validateForm() {
 
     // If validation passes, allow form submission
     return true;
+}
+
+function collectFormData() {
+    return {
+        checkIn: document.getElementById('checkIn').value,
+        checkOut: document.getElementById('checkOut').value,
+        guests: document.getElementById('guests').value,
+        roomType: document.getElementById('roomType').value,
+        firstName: document.getElementById('firstName').value,
+        lastName: document.getElementById('lastName').value,
+        email: document.getElementById('email').value,
+        phone: document.getElementById('phone').value,
+        requests: document.getElementById('requests').value
+    };
+}
+
+function createQueryString(data) {
+    return Object.keys(data)
+        .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
+        .join('&');
 }
