@@ -18,6 +18,16 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Booking form handler
+    const reservationForm = document.getElementById('reservation-form');
+    if (reservationForm) {
+        reservationForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thank you for your booking request! We will contact you shortly to confirm your reservation.');
+            reservationForm.reset();
+        });
+    }
+
     // Update copyright year and last modified date
     const yearSpan = document.getElementById('currentyear');
     const lastModified = document.getElementById('lastModified');
