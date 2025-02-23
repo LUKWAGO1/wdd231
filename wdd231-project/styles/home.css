@@ -645,6 +645,34 @@ footer {
 	.purpose-content {
 		grid-template-columns: 1fr;
 	}
+    .hamburger-menu {
+        display: block !important;
+        font-size: 2rem;
+        color: #ffffff;
+        cursor: pointer;
+        padding: 0.5rem;
+    }
+
+    .nav-menu ul {
+        display: none;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: var(--primary-color);
+        padding: 1rem 0;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    .nav-menu ul.show {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .nav-menu ul li {
+        margin: 0.5rem 0;
+        text-align: center;
+    }
 }
 
 /* The Modal (background) */
@@ -749,4 +777,24 @@ input::placeholder,
 select::placeholder, 
 textarea::placeholder {
 	color: rgba(255, 255, 255, 0.7);
+}
+
+/* Update hamburger menu visibility */
+.hamburger-menu {
+    display: none !important; /* Force hide in all views by default */
+    font-size: 2rem;
+    color: #ffffff;
+    cursor: pointer;
+    position: relative;
+    z-index: 1000;
+}
+
+@media screen and (max-width: 768px) {
+    .hamburger-menu {
+        display: block !important; /* Show only in mobile */
+        position: absolute;
+        right: 1rem;
+        top: 1rem;
+        padding: 0.5rem;
+    }
 }
